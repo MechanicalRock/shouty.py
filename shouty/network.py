@@ -10,4 +10,5 @@ class Network:
         return self.people[person_name]
 
     def broadcast(self, message):
-        pass
+        for listener in self.people.itervalues():
+            listener.hear(message)
