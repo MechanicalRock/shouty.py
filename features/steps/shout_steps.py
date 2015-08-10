@@ -13,3 +13,8 @@ def person_shouts(context, person_name, message):
 def person_should_hear_nothing(context, person_name):
     heard = context.automation.messages_heard_by(person_name)
     assert_equals([], heard)
+
+@then(u'"{person_name}" should hear "{expected_message}"')
+def person_should_hear(context, person_name, expected_message):
+    heard = context.automation.messages_heard_by(person_name)
+    assert_equals([expected_message], heard)
