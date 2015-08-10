@@ -14,7 +14,7 @@ That is, if you're attending a BDD/Cucumber course.
 Git:
 
     git clone https://github.com/cucumber-ltd/shouty.py.git
-    cd shouty.java
+    cd shouty.py
     git checkout YYYY-MM-DD
 
 Subversion:
