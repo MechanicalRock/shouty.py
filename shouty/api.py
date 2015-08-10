@@ -14,4 +14,4 @@ class Api:
 
     def messages_heard_by(self, person_name):
         person = self.network.find_or_create_person(person_name)
-        return person.messages_heard()
+        return person.messages_heard

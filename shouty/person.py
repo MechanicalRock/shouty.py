@@ -1,10 +1,11 @@
 class Person:
     def __init__(self, network):
         self.network = network
+        self.messages_heard = []
 
     def shout(self, message):
         self.network.broadcast(message)
         pass
 
-    def messages_heard(self):
-        return []
+    def hear(self, message):
+        self.messages_heard.append(message)
