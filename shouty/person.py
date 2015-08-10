@@ -4,7 +4,7 @@ class Person:
         self.messages_heard = []
 
     def shout(self, message):
-        self.network.broadcast(message)
+        self.network.broadcast(message, self.geo_location)
         pass
 
     def hear(self, message):

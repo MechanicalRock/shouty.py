@@ -1,8 +1,14 @@
 from nose.tools import assert_equals
 
+geo_locations = {
+    "Leicester Square Station":  [51.5114242, -0.1287315],
+    "Piccadilly Circus Station": [51.5101210, -0.1341683],
+    "Heathrow Terminal 5":       [51.4715066, -0.4879044]
+}
+
 @given(u'"{person_name}" is at "{location_name}"')
 def person_is_at(context, person_name, location_name):
-    geo_location = [1,2]
+    geo_location = geo_locations[location_name]
     context.automation.person_is_at(person_name, geo_location)
 
 @when(u'"{person_name}" shouts "{message}"')
