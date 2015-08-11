@@ -5,4 +5,4 @@ def test_person_tells_network_to_broadcast():
     network = Mock()
     person = Person(network)
     person.shout("hello")
-    network.broadcast.assert_called_once_with("hello")
+    network.broadcast.assert_called_once_with("hello", [0,0])
