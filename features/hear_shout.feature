@@ -19,5 +19,5 @@ Feature: Hear Shout
   Scenario: Lucy does not hear a message from Sean outside range
     Given "Sean" is at "Leicester Square Station"
     And "Lucy" is at "Heathrow Terminal 5"
-    When Sean shouts a message
-    Then Lucy does not receive the message
+    When "Sean" shouts a message
+    Then "Lucy" does not hear anything

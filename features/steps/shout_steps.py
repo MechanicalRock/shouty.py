@@ -14,10 +14,10 @@ def step_impl(context, person_name, location_name):
     geo_location = geo_locations[location_name]
     context.automation.person_is_at_geo_location(person_name, geo_location)
 
-@when(u'Sean shouts a message')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: When Sean shouts a message')
+@when(u'"{person_name}" shouts a message')
+def step_impl(context, person_name):
+    context.automation.person_shouts_message(person_name, "baaaa")
 
-@then(u'Lucy does not receive the message')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: Then Lucy does not receive the message')
+@then(u'"{person_name}" does not hear anything')
+def step_impl(context, person_name):
+    assert_equals([], context.automation.messages_heard_by(person_name))
