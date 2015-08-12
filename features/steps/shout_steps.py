@@ -11,7 +11,7 @@ geo_locations = {
 
 @given(u'"{person_name}" is at "{location_name}"')
 def step_impl(context, person_name, location_name):
-    pass
+    context.automation.person_is_at_geo_location(person_name, geo_location)
 
 @when(u'Sean shouts a message')
 def step_impl(context):
