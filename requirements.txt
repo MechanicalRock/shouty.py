@@ -1,3 +1,4 @@
+haversine
 behave
 nose
 mock
