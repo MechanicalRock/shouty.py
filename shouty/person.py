@@ -1,6 +1,7 @@
 class Person:
-    def __init__(self, postman):
+    def __init__(self, name, postman):
         self.messages_received = []
+        self.name = name
         self.postman = postman
         postman.subscribe(self)
 
