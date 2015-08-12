@@ -1,5 +1,7 @@
 from haversine import haversine
 
+STANDARD_SHOUT_DISTANCE = 1.0
+
 class Person:
     def __init__(self, name, postman):
         self.messages_received = []
@@ -13,4 +15,4 @@ class Person:
         self.messages_received.append(message)
 
     def within_range(self, geo_location):
-        return haversine(self.geo_location, geo_location) <= 1.0 # 1km
+        return haversine(self.geo_location, geo_location) <= STANDARD_SHOUT_DISTANCE
