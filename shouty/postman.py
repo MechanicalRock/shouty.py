@@ -5,9 +5,6 @@ class Postman:
     def __init__(self):
         self.people = {}
 
-    def subscribe(self, person):
-        self.people[person.name] = person
-
     def deliver(self, message, geo_location):
         for listener in self.people.values():
             if self._within_range(geo_location, listener.geo_location):

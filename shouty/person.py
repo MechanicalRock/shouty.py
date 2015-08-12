@@ -3,7 +3,6 @@ class Person:
         self.messages_received = []
         self.name = name
         self.postman = postman
-        postman.subscribe(self)
 
     def shout(self, message):
         self.postman.deliver(message, self.geo_location)
