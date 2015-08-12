@@ -4,9 +4,9 @@ Feature: Hear Shout
   - Listeners within 1km will hear messages
   - All messages are UTF-8 text
   - Max message length is 140 characters
+  - Geo location must be on
 
   Questions:
-  - Do we really need to know who shouted something?
   - Will I hear my neighbour's message when I come home from work?
   - Will my neighbour's message disappear when I go to work?
   - Do users need to be registered to shout?
@@ -26,3 +26,8 @@ Feature: Hear Shout
     And "Lucy" is at "Heathrow Terminal 5"
     When "Sean" shouts a message
     Then "Lucy" does not hear anything
+
+  @focus
+  Scenario: Sean shouldn't hear himself
+    When "Sean" shouts a message
+    Then "Sean" does not hear anything
