@@ -10,16 +10,23 @@ geo_locations = {
 #     context.automation.cukes_in_the_belly(count)
 
 @given(u'"{person_name}" is at "{location_name}"')
-def step_impl(context, person_name, location_name):
+@when(u'"{person_name}" moves to "{location_name}"')
+def person_is_at(context, person_name, location_name):
     geo_location = geo_locations[location_name]
     context.automation.person_is_at_geo_location(person_name, geo_location)
 
+@given(u'"{person_name}" has shouted from "{location_name}"')
+def person_shouts_from(context, person_name, location_name):
+    person_is_at(context, person_name, location_name)
+    person_shouts(context, person_name)
+
 @when(u'"{person_name}" shouts a message')
-def step_impl(context, person_name):
-    context.automation.person_shouts_message(person_name, "baaaa")
+def person_shouts(context, person_name):
+    person_shouts_message(context, person_name, "baaaa")
 
 @when(u'"{person_name}" shouts "{message}"')
-def step_impl(context, person_name, message):
+def person_shouts_message(context, person_name, message):
+    context.last_message = message
     context.automation.person_shouts_message(person_name, message)
 
 @then(u'"{person_name}" does not hear anything')
@@ -29,6 +36,10 @@ def step_impl(context, person_name):
 @then(u'"{person_name}" hears "{expected_message}"')
 def step_impl(context, person_name, expected_message):
     assert_equals([expected_message], context.automation.messages_heard_by(person_name))
+
+@then(u'"{person_name}" hears the message')
+def step_impl(context, person_name):
+    assert_equals([context.last_message], context.automation.messages_heard_by(person_name))
 
 @then(u'"{person_name}" should hear')
 def step_impl(context, person_name):

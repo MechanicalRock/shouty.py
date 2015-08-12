@@ -43,3 +43,8 @@ Feature: Hear Shout
       | message      |
       | This is Sean |
       | I am Sally   |
+
+  Scenario: Lucy hears an old message
+    Given "Sean" has shouted from "Heathrow Terminal 5"
+    When "Lucy" moves to "Heathrow Terminal 5"
+    Then "Lucy" hears the message
