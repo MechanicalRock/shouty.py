@@ -6,9 +6,10 @@ Feature: Hear Shout
   - Max message length is 140 characters
   - Geo location must be on
   - Messages delievered in chronological order
+  - I should hear my neighbour's message when I come home from work
 
   Questions:
-  - Will I hear my neighbour's message when I come home from work?
+  - How many (old) messages should we hear? Is there a limit?
   - Will my neighbour's message disappear when I go to work?
   - Do users need to be registered to shout?
 
