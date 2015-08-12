@@ -6,6 +6,7 @@ Feature: Hear Shout
   - Max message length is 140 characters
 
   Questions:
+  - Do we really need to know who shouted something?
   - Will I hear my neighbour's message when I come home from work?
   - Will my neighbour's message disappear when I go to work?
   - Do users need to be registered to shout?
@@ -15,6 +16,10 @@ Feature: Hear Shout
   - Lucy the listener
 
   Scenario: Lucy hears a message from Sean within range
+    Given "Sean" is at "Leicester Square Station"
+    And "Lucy" is at "Piccadilly Circus Station"
+    When "Sean" shouts "hello"
+    Then "Lucy" hears "hello"
 
   Scenario: Lucy does not hear a message from Sean outside range
     Given "Sean" is at "Leicester Square Station"

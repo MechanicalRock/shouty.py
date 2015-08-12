@@ -18,6 +18,14 @@ def step_impl(context, person_name, location_name):
 def step_impl(context, person_name):
     context.automation.person_shouts_message(person_name, "baaaa")
 
+@when(u'"{person_name}" shouts "{message}"')
+def step_impl(context, person_name, message):
+    context.automation.person_shouts_message(person_name, message)
+
 @then(u'"{person_name}" does not hear anything')
 def step_impl(context, person_name):
     assert_equals([], context.automation.messages_heard_by(person_name))
+
+@then(u'"{person_name}" hears "{expected_message}"')
+def step_impl(context, person_name, expected_message):
+    assert_equals([expected_message], context.automation.messages_heard_by(person_name))
