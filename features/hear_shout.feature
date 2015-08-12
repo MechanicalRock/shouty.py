@@ -5,6 +5,7 @@ Feature: Hear Shout
   - All messages are UTF-8 text
   - Max message length is 140 characters
   - Geo location must be on
+  - Messages delievered in chronological order
 
   Questions:
   - Will I hear my neighbour's message when I come home from work?
@@ -27,7 +28,17 @@ Feature: Hear Shout
     When "Sean" shouts a message
     Then "Lucy" does not hear anything
 
-  @focus
   Scenario: Sean shouldn't hear himself
     When "Sean" shouts a message
     Then "Sean" does not hear anything
+
+  Scenario: Lucy receives messages in chronological order
+    Given "Sean" is at "Leicester Square Station"
+    Given "Sally" is at "Leicester Square Station"
+    And "Lucy" is at "Piccadilly Circus Station"
+    When "Sean" shouts "This is Sean"
+    And "Sally" shouts "I am Sally"
+    Then "Lucy" should hear
+      | message      |
+      | This is Sean |
+      | I am Sally   |

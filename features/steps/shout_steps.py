@@ -29,3 +29,11 @@ def step_impl(context, person_name):
 @then(u'"{person_name}" hears "{expected_message}"')
 def step_impl(context, person_name, expected_message):
     assert_equals([expected_message], context.automation.messages_heard_by(person_name))
+
+@then(u'"{person_name}" should hear')
+def step_impl(context, person_name):
+    expected_messages = []
+    for row in context.table.rows:
+        expected_messages.append(row[0])
+
+    assert_equals(expected_messages, context.automation.messages_heard_by(person_name))
