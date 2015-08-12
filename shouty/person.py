@@ -1,3 +1,5 @@
+from haversine import haversine
+
 class Person:
     def __init__(self, name, postman):
         self.messages_received = []
@@ -9,3 +11,6 @@ class Person:
 
     def hear(self, message):
         self.messages_received.append(message)
+
+    def within_range(self, geo_location):
+        return haversine(self.geo_location, geo_location) <= 1.0 # 1km
