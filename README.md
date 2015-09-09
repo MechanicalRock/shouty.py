@@ -19,7 +19,7 @@ Git:
 
 Subversion:
 
-    svn checkout https://github.com/cucumber-ltd/shouty.py/trunk shouty.py
+    svn checkout https://github.com/cucumber-ltd/shouty.py/branches/YYYY-MM-DD shouty.py
     cd shouty.py
 
 Or simply [download](https://github.com/cucumber-ltd/shouty.py/releases) a zip or tarball.
