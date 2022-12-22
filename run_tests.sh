@@ -1,5 +1,6 @@
 # Unit Tests
-nosetests
+pytest
+# nosetests
 
 # Acceptance tests
 behave

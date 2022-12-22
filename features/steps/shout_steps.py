@@ -21,8 +21,8 @@ def step_impl(context):
 
 @then(u'Lucy should hear Sean')
 def step_impl(context):
-    assert_equals(len(context.shouty.get_shouts_heard_by('Lucy')), 1)
+    assert len(context.shouty.get_shouts_heard_by('Lucy')) == 1
 
 @then(u'Lucy should hear nothing')
 def step_impl(context):
-    assert_equals(len(context.shouty.get_shouts_heard_by('Lucy')), 0)
+    assert len(context.shouty.get_shouts_heard_by('Lucy')) == 0
